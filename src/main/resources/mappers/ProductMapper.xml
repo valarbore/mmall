@@ -117,7 +117,7 @@
       <if test="createTime != null" >
         now(),
       </if>
-      <if test="updateTime != null" >
+      <if test="updateTime == null" >
         now(),
       </if>
     </trim>
@@ -155,7 +155,7 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null" >
+      <if test="updateTime == null" >
         update_time =now(),
       </if>
     </set>
