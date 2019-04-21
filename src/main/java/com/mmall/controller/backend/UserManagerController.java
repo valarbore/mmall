@@ -1,6 +1,7 @@
-package com.mmall.controller.portal;
+package com.mmall.controller.backend;
 
 import com.mmall.common.Const;
+import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
 import com.mmall.pojo.User;
 import com.mmall.service.IUserService;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/manager/user")
 public class UserManagerController {
     @Autowired
-    private IUserService iUserService;
+    private static IUserService iUserService;
 
     @RequestMapping(value = "login,do",method = RequestMethod.POST)
     @ResponseBody

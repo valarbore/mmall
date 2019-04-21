@@ -45,7 +45,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-
+<!--    拦截.do结尾的请求  -->
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.do</url-pattern>
