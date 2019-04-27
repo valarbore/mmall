@@ -26,5 +26,6 @@ public interface IUserService {
     ServerResponse<User> getInformation(Integer userId);
 
     // backend
+    // 检验登录且为管理员
     ServerResponse checkAdminRole(HttpSession session);
 }
