@@ -34,7 +34,7 @@ public class CategoryManagerController {
     @RequestMapping(value = "add_category.do", method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse addCategory(HttpSession session, String categoryName, @RequestParam(value = "parentId", defaultValue = "0") int parentId) {
-        ServerResponse response= Validate.checkAdmin(session);
+        ServerResponse response= iUserService.checkAdminRole(session);
         if(response.isSuccess()){
             return iCategoryService.addCategory(categoryName, parentId);
         }
@@ -51,7 +51,7 @@ public class CategoryManagerController {
     @RequestMapping(value = "set_category_name.do", method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse setCategoryName(HttpSession session, Integer categoryId, String categoryName) {
-        ServerResponse response=Validate.checkAdmin(session);
+        ServerResponse response=iUserService.checkAdminRole(session);
         if(response.isSuccess()){
             return iCategoryService.updateCategoryName(categoryId,categoryName);
         }
@@ -67,7 +67,7 @@ public class CategoryManagerController {
     @RequestMapping(value = "get_category.do", method = RequestMethod.GET)
     @ResponseBody
     public ServerResponse getChildrenParallelCategory(HttpSession session,@RequestParam(value = "categoryId",defaultValue = "0") Integer categoryId){
-        ServerResponse response=Validate.checkAdmin(session);
+        ServerResponse response=iUserService.checkAdminRole(session);
         if(response.isSuccess()){
             return iCategoryService.getChildrenParallelCategory(categoryId);
         }
@@ -83,7 +83,7 @@ public class CategoryManagerController {
     @RequestMapping(value = "get_category_and_deep_children.do", method = RequestMethod.GET)
     @ResponseBody
     public ServerResponse getCategoryAndDeepChildren(HttpSession session,@RequestParam(value = "categoryId",defaultValue = "0") Integer categoryId){
-        ServerResponse response=Validate.checkAdmin(session);
+        ServerResponse response=iUserService.checkAdminRole(session);
         if(response.isSuccess()){
             return iCategoryService.selectCategoryAndChildrenById(categoryId);
         }
